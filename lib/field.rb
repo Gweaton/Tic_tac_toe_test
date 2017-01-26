@@ -2,9 +2,14 @@
 class Field
 
   attr_reader :location
-  
+
   def initialize(location)
     @location = location
+    @letter = nil
+  end
+
+  def show
+    @letter
   end
 
 end
