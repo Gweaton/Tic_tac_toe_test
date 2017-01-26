@@ -12,4 +12,8 @@ class Field
     @letter
   end
 
+  def place(letter)
+    @letter = letter
+  end
+
 end
