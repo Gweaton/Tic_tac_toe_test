@@ -4,15 +4,15 @@ class Field
   attr_reader :location
 
   def initialize
-    @letter = nil
+    @content = nil
   end
 
   def show
-    @letter
+    @content
   end
 
   def place(letter)
-    @letter = letter
+    @content = letter
   end
 
 end
