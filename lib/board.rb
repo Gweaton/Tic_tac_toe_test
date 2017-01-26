@@ -4,7 +4,7 @@ class Board
 
   def initialize(field)
     @board = {}
-    [*"A".."C"].each do |letter|
+    [*"a".."c"].each do |letter|
       [*1..3].each do |number|
         @board["#{letter}#{number}".to_sym] = field.new
       end
@@ -13,5 +13,9 @@ class Board
 
   def show_grid
     @board
+  end
+
+  def place(letter, field)
+    @board[field].place(letter)
   end
 end
