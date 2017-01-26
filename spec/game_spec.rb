@@ -11,6 +11,8 @@ describe Game do
   before do
     allow(board).to receive(:new).and_return board
     allow(board).to receive(:place)
+    allow(player1).to receive(:name).and_return "X"
+    allow(player2).to receive(:name).and_return "O"
 
   end
 
@@ -40,13 +42,13 @@ describe Game do
 
     it "can place a letter" do
       expect(board).to receive("place")
-      game.place("X", field)
+      game.place(field)
     end
 
     it "switches turns after placing a letter" do
-      game.place("X", field)
+      game.place(field)
       expect(game.turn).to eq player2
-      game.place("O", field)
+      game.place(field)
       expect(game.turn).to eq player1
     end
   end

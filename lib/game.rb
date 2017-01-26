@@ -20,8 +20,8 @@ class Game
     @turn ||= self.player1
   end
 
-  def place(letter = self.turn.name, field)
-    @board.place(letter, field)
+  def place(field)
+    @board.place(self.turn.name, field)
     switch_turns
   end
 
