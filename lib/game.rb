@@ -1,10 +1,14 @@
 # responsible for the game logic
+require_relative 'board'
+require_relative 'field'
+require_relative 'player'
+
 class Game
   attr_reader :board
   attr_accessor :player1, :player2
 
   def initialize(board)
-    @board = board.new
+    @board = board.new(Field)
     @player1, @player2 = nil
   end
 
@@ -16,7 +20,7 @@ class Game
     @turn ||= self.player1
   end
 
-  def place(letter, field)
+  def place(letter = self.turn.name, field)
     @board.place(letter, field)
     switch_turns
   end

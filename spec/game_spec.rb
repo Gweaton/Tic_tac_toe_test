@@ -37,6 +37,7 @@ describe Game do
       game.add_player(player1)
       game.add_player(player2)
     end
+
     it "can place a letter" do
       expect(board).to receive("place")
       game.place("X", field)
