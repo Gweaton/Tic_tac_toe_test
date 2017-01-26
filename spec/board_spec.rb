@@ -26,5 +26,9 @@ describe Board do
       expect(board.show_grid[:a1]).to receive(:place)
       board.place("X", :a1)
     end
+    it "should not let you place a letter if there is already a letter on board" do
+      allow(field).to receive(:show).and_return "X"
+      expect { board.place("O", :a1) }.to raise_error "You cannot place a letter where there is already a letter!"
+    end
   end
 end
