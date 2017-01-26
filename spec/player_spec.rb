@@ -10,6 +10,8 @@ describe Player do
     expect(player2.name).to eq "X"
   end
 
-
+  it "should not allow any other names to be chosen" do
+    expect { Player.new("Y") }.to raise_error("Sorry, player names can only be X or O.")
+  end
 
 end
