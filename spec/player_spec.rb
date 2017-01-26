@@ -1,10 +1,15 @@
 require 'player'
 
-describe 'Player' do
+describe Player do
+
+  subject(:player1) { described_class.new("O") }
+  subject(:player2) { described_class.new("X")}
 
   it "should have an name of X or O" do
-    player = Player.new('O')
-    expect(player.name).to eq 'O'
+    expect(player1.name).to eq 'O'
+    expect(player2.name).to eq "X"
   end
+
+
 
 end
