@@ -33,9 +33,20 @@ describe Game do
   end
 
   context "a turn" do
+    before do
+      game.add_player(player1)
+      game.add_player(player2)
+    end
     it "can place a letter" do
       expect(board).to receive("place")
       game.place("X", field)
+    end
+
+    it "switches turns after placing a letter" do
+      game.place("X", field)
+      expect(game.turn).to eq player2
+      game.place("O", field)
+      expect(game.turn).to eq player1
     end
   end
 
