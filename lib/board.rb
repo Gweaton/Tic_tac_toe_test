@@ -1,8 +1,6 @@
 # Responsible for creating the board to play on
 class Board
 
-  attr_reader :board
-
   def initialize
     @board = [['-', '-', '-'],
               ['-', '-', '-'],
@@ -10,6 +8,6 @@ class Board
   end
 
   def show_grid
-    self.board
+    @board
   end
 end
