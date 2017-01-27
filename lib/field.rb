@@ -15,4 +15,9 @@ class Field
     @content = letter
   end
 
+  def taken?
+    @content != nil
+  end
+
+
 end

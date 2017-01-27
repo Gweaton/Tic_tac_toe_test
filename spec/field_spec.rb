@@ -13,5 +13,10 @@ describe Field do
       field1.place("X")
       expect(field1.show).to eq "X"
     end
+
+    it "knows when a player has placed X or Y" do
+      field1.place("X")
+      expect(field1.taken?).to eq true
+    end
   end
 end

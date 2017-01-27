@@ -25,4 +25,5 @@ class Board
   def taken?(field)
     @board[field].show != nil
   end
+
 end
