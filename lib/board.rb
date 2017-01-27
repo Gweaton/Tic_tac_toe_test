@@ -19,4 +19,8 @@ class Board
     @board[field].place(letter)
   end
 
+  def full?
+    show_grid.all? { |key, value| value.content != nil}
+  end
+
 end

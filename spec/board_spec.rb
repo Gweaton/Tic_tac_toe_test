@@ -5,7 +5,6 @@ describe Board do
   let(:field) { double :field, content: nil }
   subject(:board) { described_class.new(field) }
   let(:a1) { double :a1 }
-  let(:filled) {double :filled, content: "X", show: "X"}
 
   before do
     allow(field).to receive(:new).and_return field
@@ -26,6 +25,11 @@ describe Board do
     it "should place the selected letter on the board" do
       expect(board.show_grid[:a1]).to receive(:place)
       board.place("X", :a1)
+    end
+
+    it "knows when it is full" do
+      allow(field).to receive(:content).and_return "X"
+      expect(board.full?).to eq true
     end
   end
 end
