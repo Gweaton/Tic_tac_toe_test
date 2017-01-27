@@ -27,9 +27,9 @@ describe Board do
       board.place("X", :a1)
     end
 
-    it "knows when it is full" do
+    it "does not let you place a letter on a full board" do
       allow(field).to receive(:content).and_return "X"
-      expect(board.full?).to eq true
+      expect { board.place("X", :a1) }.to raise_error "The board is full - the game is finished!"
     end
   end
 end

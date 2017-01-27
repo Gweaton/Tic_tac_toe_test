@@ -16,11 +16,16 @@ class Board
   end
 
   def place(letter, field)
+    raise "The board is full - the game is finished!" if full?
     @board[field].place(letter)
   end
+
+
+  private
 
   def full?
     show_grid.all? { |key, value| value.content != nil}
   end
+
 
 end
