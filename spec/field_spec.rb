@@ -9,14 +9,24 @@ describe Field do
       expect(field1.show).to be_nil
     end
 
-    it "has a space where an X or Y can be placed" do
-      field1.place("X")
-      expect(field1.show).to eq "X"
-    end
+    describe "#place" do
 
-    it "knows when a player has placed X or Y" do
-      field1.place("X")
-      expect(field1.taken?).to eq true
+      before do
+        field1.place("X")
+      end
+
+      it "has a space where an X or O can be placed" do
+        expect(field1.show).to eq "X"
+      end
+
+      it "knows when a player has placed X or O" do
+        expect(field1.taken?).to eq true
+      end
+
+      it "will not allow you to place a letter if the field is already occupied" do
+        expect { field1.place("O") }.to raise_error "You cannot place a letter on an occupied space."
+      end
+
     end
   end
 end

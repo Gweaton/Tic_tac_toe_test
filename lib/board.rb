@@ -16,14 +16,7 @@ class Board
   end
 
   def place(letter, field)
-    raise "You cannot place a letter where there is already a letter!" if taken?(field)
     @board[field].place(letter)
-  end
-
-  private
-
-  def taken?(field)
-    @board[field].show != nil
   end
 
 end

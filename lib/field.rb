@@ -12,6 +12,7 @@ class Field
   end
 
   def place(letter)
+    raise "You cannot place a letter on an occupied space." if taken?
     @content = letter
   end
 
