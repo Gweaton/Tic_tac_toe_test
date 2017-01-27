@@ -2,7 +2,7 @@
 require_relative 'field'
 class Board
 
-  def initialize(field)
+  def initialize(field, board = {})
     @board = {}
     [*"a".."c"].each do |letter|
       [*1..3].each do |number|
@@ -18,6 +18,15 @@ class Board
   def place(letter, field)
     raise "The board is full - the game is finished!" if full?
     @board[field].place(letter)
+  end
+
+  def whole_row?
+    fields = []
+    p @board
+    @board.each_key do |field, content|
+      fields.push content if field[0] ===  "a"
+    end
+    p fields
   end
 
 
